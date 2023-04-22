@@ -68,9 +68,13 @@ The latest automatic build for Windows, macOS, and Linux can be found on the [Of
 If you wish to build the emulator yourself, follow these steps:
 
 ### Step 1
-Install the X64 version of [.NET 7.0 (or higher) SDK](https://dotnet.microsoft.com/download/dotnet/7.0).
+
+Install [.NET 7.0 (or higher) SDK](https://dotnet.microsoft.com/download/dotnet/7.0).
+
+Note: Please select OS and architecture, for example select macOS, Arm64 when building on Apple Silicon M2
 
 ### Step 2
+
 Either use `git clone https://github.com/Ryujinx/Ryujinx` on the command line to clone the repository or use Code --> Download zip button to get the files.
 
 ### Step 3
@@ -81,6 +85,11 @@ the built files will be found in the newly created build directory.
 
 Ryujinx system files are stored in the `Ryujinx` folder. This folder is located in the user folder, which can be accessed by clicking `Open Ryujinx Folder` under the File menu in the GUI.
 
+[macOS] build and package from the project folder
+
+```
+git clean -fdx; DOTNET_CLI_TELEMETRY_OPTOUT=1 sh -x ./distribution/macos/create_macos_release.sh . ./temp ./output distribution/macos/entitlements.xml `git describe --tags`-macos `git describe --always` 
+```
 
 ## Features
 
